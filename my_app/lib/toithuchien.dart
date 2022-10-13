@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class firstpage extends StatelessWidget {
-  const firstpage({Key? key}) : super(key: key);
+class toithuchien extends StatelessWidget {
+  const toithuchien({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
