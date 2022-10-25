@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/body.dart';
-import 'package:my_app/test.dart';
+import 'package:my_app/Test/test.dart';
 
 class homepage extends StatelessWidget {
   homepage({Key? key}) : super(key: key);
@@ -49,9 +49,7 @@ class homepage extends StatelessWidget {
                 child: ListTile(
                   title: Text('Tôi theo dõi'),
                   trailing: Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    print('onTap Pressed');
-                  },
+                  onTap: () {},
                   onLongPress: () {
                     print('onLong Pressed!');
                   },

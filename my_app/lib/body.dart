@@ -10,52 +10,55 @@ class body extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-        child: Scaffold(
+      child: Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.green[900],
-            title: Text('Tôi thực hiện'),
+          backgroundColor: Colors.green[900],
+          title: Text('Tôi thực hiện'),
         ),
-      body: Column(
-        children:[
+        body: Column(children: [
           Container(
             decoration: BoxDecoration(
-            color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-          boxShadow: [BoxShadow(
-          offset: Offset(0, 2),
-          blurRadius: 10,
-        )]
-        ),
-
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 2),
+                    blurRadius: 10,
+                  )
+                ]),
             padding: EdgeInsets.all(8),
             child: Row(
               children: [
                 Icon(Icons.search, color: Colors.black),
-                Text('Tìm kiếm', style: TextStyle(color: Colors.black),),
-          ],
-        ),
-      ),
-         const TabBar(
-           labelColor: Colors.green,
-             unselectedLabelColor: Colors.blueGrey,
-             tabs: [
-              Tab(
-                child: Text('Đang thực hiện'),
-              ),
-               Tab(
-                 child: Text('Quá hạn'),
-               ),
-               Tab(text: 'Đang đánh giá'),
-             ]
-         ),
+                Text(
+                  'Tìm kiếm',
+                  style: TextStyle(color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+          const TabBar(
+              labelColor: Colors.green,
+              unselectedLabelColor: Colors.blueGrey,
+              tabs: [
+                Tab(
+                  child: Text('Đang thực hiện'),
+                ),
+                Tab(
+                  child: Text('Quá hạn'),
+                ),
+                Tab(text: 'Đang đánh giá'),
+              ]),
           Expanded(
-              child: TabBarView(children: [
-                FirstTab(),
-                SecondTab(),
-                ThirdTab(),
-          ],))
+              child: TabBarView(
+            children: [
+              FirstTab(),
+              SecondTab(),
+              ThirdTab(),
+            ],
+          ))
         ]),
-        ),
-      );
+      ),
+    );
   }
 }

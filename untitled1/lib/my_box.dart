@@ -1,39 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:untitled1/fourth_route.dart';
 
-class FirstTab extends StatefulWidget {
-  const FirstTab({Key? key}) : super(key: key);
+class MyBox extends StatelessWidget {
+  const MyBox({
+    Key? key,
+    required this.text1,
+    required this.text2,
+    required this.onTab,
+  });
 
-  @override
-  State<FirstTab> createState() => _FirstTabState();
-}
+  final String text1;
+  final String text2;
+  final Function(BuildContext context) onTab;
 
-class _FirstTabState extends State<FirstTab> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Slidable(
-          endActionPane: ActionPane(motion: StretchMotion(), children: [
-            SlidableAction(
-                onPressed: _showModalBottomSheet,
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.white,
-                icon: Icons.add,
-                label: 'Thêm'),
-            SlidableAction(
-              onPressed: ((context) {}),
-              backgroundColor: Colors.blue,
-              icon: Icons.percent,
-              label: 'Tiến độ',
-            ),
-          ]),
-          child: Container(
-            color: Colors.grey[300],
-            child: ListTile(
-              title: Text('Ngo Duc'),
-              subtitle: Text('0965223408'),
-              leading: Icon(Icons.person, size: 40),
+    return Slidable(
+      key: const ValueKey(0),
+      endActionPane: ActionPane(
+        motion: ScrollMotion(),
+        children: [
+          SlidableAction(
+            flex: 1,
+            onPressed: _showModalBottomSheet,
+            backgroundColor: Colors.grey,
+            foregroundColor: Colors.white,
+            icon: Icons.more_horiz,
+            label: 'Thêm',
+          ),
+          SlidableAction(
+            onPressed: doNothing,
+            backgroundColor: Color(0xFF0392CF),
+            foregroundColor: Colors.white,
+            icon: Icons.percent,
+            label: 'Tiến độ',
+          ),
+        ],
+      ),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Card(
+            child: InkWell(
+              splashColor: Colors.green.withAlpha(200),
+              onTap: () {
+                onTab.call(context);
+              },
+              child: ListTile(
+                title: Text(text1),
+                subtitle: Text(text2),
+                trailing: Icon(Icons.keyboard_arrow_right),
+              ),
             ),
           ),
         ),
@@ -95,7 +113,7 @@ void _showModalBottomSheet(BuildContext context) {
                       onPressed: () {
                         print('111111');
                       },
-                      icon: Image.asset('my_app/assets/icons/icon3.jpg'),
+                      icon: Image.asset('assets/icons/icon3.jpg'),
                     ),
                     Text(
                       'Đánh giá',

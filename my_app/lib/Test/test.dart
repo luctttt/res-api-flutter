@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class FirstTab extends StatefulWidget {
-  const FirstTab({Key? key}) : super(key: key);
+class test extends StatefulWidget {
+  const test({Key? key}) : super(key: key);
 
   @override
-  State<FirstTab> createState() => _FirstTabState();
+  State<test> createState() => _testState();
 }
 
-class _FirstTabState extends State<FirstTab> {
+class _testState extends State<test> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: Center(
         child: Slidable(
+          startActionPane: ActionPane(
+            motion: StretchMotion(),
+            children: [
+              SlidableAction(
+                onPressed: _showModalBottomSheet,
+                backgroundColor: Colors.green,
+                icon: Icons.phone,
+              ),
+              SlidableAction(
+                onPressed: ((context) {}),
+                backgroundColor: Colors.blue,
+                icon: Icons.chat,
+              ),
+            ],
+          ),
           endActionPane: ActionPane(motion: StretchMotion(), children: [
             SlidableAction(
-                onPressed: _showModalBottomSheet,
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.white,
-                icon: Icons.add,
-                label: 'Thêm'),
-            SlidableAction(
-              onPressed: ((context) {}),
-              backgroundColor: Colors.blue,
-              icon: Icons.percent,
-              label: 'Tiến độ',
+              onPressed: doNothing,
+              backgroundColor: Colors.red,
+              icon: Icons.cancel,
             ),
           ]),
           child: Container(
@@ -95,7 +103,7 @@ void _showModalBottomSheet(BuildContext context) {
                       onPressed: () {
                         print('111111');
                       },
-                      icon: Image.asset('my_app/assets/icons/icon3.jpg'),
+                      icon: Image.asset('assets/icons/icon3.jpg'),
                     ),
                     Text(
                       'Đánh giá',
