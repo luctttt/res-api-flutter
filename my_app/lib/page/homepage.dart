@@ -84,9 +84,7 @@ class homepage extends StatelessWidget {
                   child: ListTile(
                     title: Text('Phòng ban'),
                     trailing: Icon(Icons.arrow_forward_ios),
-                    onTap: () {
-                      print('onTap Pressed');
-                    },
+                    onTap: () {},
                     onLongPress: () {
                       print('onLong Pressed!');
                     },
