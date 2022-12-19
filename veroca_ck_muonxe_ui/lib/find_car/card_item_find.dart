@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'constants.dart';
+import '../untils/constants.dart';
 
-class CardItem extends StatelessWidget {
-  const CardItem({Key? key}) : super(key: key);
+class CardItemFind extends StatelessWidget {
+  const CardItemFind({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +113,7 @@ class CardItem extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: kBackgroundText),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 7,
                   ),
                   Text(
@@ -137,7 +137,7 @@ class CardItem extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: kCardTitle),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     '2022-10-22',
                     style: GoogleFonts.inter(
@@ -145,7 +145,7 @@ class CardItem extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: kCardTitle),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 1.78,
                   ),
                 ],

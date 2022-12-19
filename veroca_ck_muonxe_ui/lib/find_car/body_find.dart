@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:veroca_ck_muonxe_ui/card_item.dart';
 
-import 'constants.dart';
+import '../untils/constants.dart';
+import 'card_item_find.dart';
 
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
+class BodyCarFind extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -13,7 +11,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Filter(),
-          CardItem(),
+          CardItemFind(),
         ],
       ),
     );
@@ -34,7 +32,10 @@ class Filter extends StatelessWidget {
         child: Column(children: [
           TextField(
             decoration: InputDecoration(
-                label: const Text("Ngày cần giao xe",
+                contentPadding: EdgeInsets.only(left: 12, bottom: 12, top: 9),
+                focusColor: Colors.white,
+                fillColor: Colors.white,
+                label: const Text("Ngày tạo",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
                         color: kBackgroundText,
@@ -47,20 +48,9 @@ class Filter extends StatelessWidget {
           ),
           TextField(
             decoration: InputDecoration(
+                hintText: 'Nguyễn',
+                contentPadding: EdgeInsets.only(left: 12, bottom: 12, top: 9),
                 label: const Text("Tên khách hàng",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: kBackgroundText,
-                        fontSize: 13)),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(4))),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          TextField(
-            decoration: InputDecoration(
-                label: const Text("VIN",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
                         color: kBackgroundText,
@@ -77,8 +67,10 @@ class Filter extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                        contentPadding:
+                            EdgeInsets.only(left: 12, bottom: 12, top: 9),
                         label: const Text(
-                          "Trạng thái",
+                          "VIN",
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: kBackgroundText,
