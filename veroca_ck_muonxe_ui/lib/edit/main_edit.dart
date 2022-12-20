@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:veroca_ck_muonxe_ui/create_car_loan_commitments/body_create.dart';
 
 import '../untils/constants.dart';
-import 'body_detail_car.dart';
+import 'body_edit.dart';
 
-class MainDetailCar extends StatelessWidget {
+class MainEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,19 +15,15 @@ class MainDetailCar extends StatelessWidget {
           primarySwatch: kPrimaryColorSwatch,
           scaffoldBackgroundColor: Colors.white),
       home: Scaffold(
-        body: SingleChildScrollView(child: BodyDetailCar()),
+        body: SingleChildScrollView(child: BodyEdit()),
         appBar: AppBar(
-          title: const Text('Chi tiết cam kết mượn xe'),
+          title: const Text('Chính sửa cam kết mượn xe'),
           leading: IconButton(
               onPressed: () => Get.back(), icon: Icon(Icons.arrow_back)),
           actions: [
             Container(
               padding: EdgeInsets.only(right: 15, top: 11, bottom: 11),
-              child: Icon(Icons.edit),
-            ),
-            Container(
-              padding: EdgeInsets.only(right: 15, top: 11, bottom: 11),
-              child: Icon(Icons.abc),
+              child: Icon(Icons.save),
             )
           ],
         ),

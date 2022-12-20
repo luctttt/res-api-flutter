@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:veroca_ck_muonxe_ui/edit/main_edit.dart';
 import 'package:veroca_ck_muonxe_ui/manage_car_loan_commitments/body.dart';
 import 'create_car_loan_commitments/main_create.dart';
 import 'detail/main_detail.dart';
@@ -7,7 +8,7 @@ import 'find_car/main_car.dart';
 import 'untils/constants.dart';
 
 void main() {
-  runApp(MainDetailCar());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,9 +23,12 @@ class MyApp extends StatelessWidget {
           // fontFamily: GoogleFonts.inter().fontFamily,
           primarySwatch: kPrimaryColorSwatch,
           scaffoldBackgroundColor: kBackground),
+      initialRoute: '/',
       getPages: [
-        // GetPage(name: '/demo-1', page: () => MainCreate()),
-        // GetPage(name: '/demo-2', page: () => Demo2()),
+        GetPage(
+          name: '/create/',
+          page: () => MainCreate(),
+        ),
       ],
       home: Scaffold(
         body: Body(),
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print('Tap tap tap !!');
-                Get.off(MainCreate()); //
+                Get.to(MainCreate());
               },
               child: Container(
                 padding: EdgeInsets.only(right: 15, top: 11, bottom: 11),

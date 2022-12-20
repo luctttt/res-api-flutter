@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:veroca_ck_muonxe_ui/find_car/main_car.dart';
+import 'package:veroca_ck_muonxe_ui/create_car_loan_commitments/borrowing_time.dart';
+import 'package:veroca_ck_muonxe_ui/create_car_loan_commitments/filter_create.dart';
+import 'package:veroca_ck_muonxe_ui/create_car_loan_commitments/info_car_create.dart';
 
 import '../untils/constants.dart';
-import 'borrowing_time.dart';
-import 'filter_create.dart';
-import 'info_car_create.dart';
 
-class BodyCreate extends StatelessWidget {
+class BodyEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,22 +14,59 @@ class BodyCreate extends StatelessWidget {
         padding: EdgeInsets.only(top: 20, left: 12, right: 12),
         child: Column(
           children: [
-            CardInfo(),
+            InfoCar(),
             FilterCreate(),
             BorrowingTime(),
-            BorrowingReason(),
-            InfoCarCreate(),
+            InfoCarCreate()
           ],
         ));
   }
 }
 
-class CardInfo extends StatelessWidget {
+class InfoCar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
       children: [
+        Row(
+          children: [
+            Text(
+              'Số biên bản:',
+              style: GoogleFonts.inter(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: kBackgroundText),
+            ),
+            const SizedBox(
+              width: 7,
+            ),
+            Text('BB20221010002',
+                style: GoogleFonts.inter(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: kCardTitle)),
+            Spacer(),
+            Container(
+                padding: const EdgeInsets.only(
+                    left: 18, right: 18, top: 4, bottom: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: kBackgroundNewCreate,
+                ),
+                child: Text(
+                  "Mới tạo",
+                  style: GoogleFonts.inter(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 11,
+                  ),
+                ))
+          ],
+        ),
+        const SizedBox(
+          height: 9,
+        ),
         Row(children: [
           Text(
             'Số khung:',
@@ -44,35 +79,15 @@ class CardInfo extends StatelessWidget {
             width: 10,
           ),
           Expanded(
-            child: Text('KMFWBX7RAHU863151',
-                style: GoogleFonts.inter(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: kCardTitle)),
-          ),
-          const SizedBox(
-            width: 32,
-          ),
-          GestureDetector(
-            onTap: () {
-              print('clik tim xe ......');
-              Get.off(MainCar());
-            },
-            child: Container(
-              // color: kPrimaryColor,
-              padding:
-                  const EdgeInsets.only(left: 14, right: 14, top: 5, bottom: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: kPrimaryColor,
-              ),
-              child: Text('Tìm xe',
+            child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              Text('KMFWBX7RAHU863151 ',
+                  maxLines: 1,
                   style: GoogleFonts.inter(
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white)),
-            ),
-          )
+                      fontWeight: FontWeight.w400,
+                      color: kCardTitle)),
+            ]),
+          ),
         ]),
         const SizedBox(
           height: 12,
@@ -125,45 +140,6 @@ class CardInfo extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-      ],
-    );
-  }
-}
-
-class BorrowingReason extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Text(
-              'Lý do mượn *',
-              style: TextStyle(
-                  color: kBackgroundText,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400),
-            ),
-          ],
-        ),
-        const TextField(
-            decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(top: 12, left: 6, bottom: 10),
-                counterStyle: TextStyle(
-                    fontSize: 14,
-                    color: Colors.red,
-                    fontWeight: FontWeight.w400),
-                hintStyle: TextStyle(
-                    color: kCardTitle,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
-                prefixIcon: Icon(Icons.date_range)),
-            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300)),
-        const SizedBox(
-          height: 19,
-        )
       ],
     );
   }
