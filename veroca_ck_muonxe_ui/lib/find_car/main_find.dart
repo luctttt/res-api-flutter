@@ -5,7 +5,7 @@ import 'package:veroca_ck_muonxe_ui/find_car/body_find.dart';
 
 import '../untils/constants.dart';
 
-class MainCar extends StatelessWidget {
+class MainFind extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
